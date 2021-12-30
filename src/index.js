@@ -4,12 +4,20 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import CustomThemeProvider from "./contexts/themeContext";
+import { CssBaseline } from "@mui/material";
+import { CommonContextProvider } from "./contexts/commonContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <CommonContextProvider>
+      <CustomThemeProvider>
+        <CssBaseline />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CustomThemeProvider>
+    </CommonContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

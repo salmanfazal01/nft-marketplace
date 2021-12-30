@@ -1,6 +1,6 @@
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Button, Container, Hidden, Stack } from "@mui/material";
+import { Button, Container, Divider, Hidden, Stack } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -9,6 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import withAppConfig from "../../hoc/withAppConfig";
+import ThemeToggleButton from "../Buttons/ThemeToggle";
 
 const menuItems = [
   { name: "Home" },
@@ -39,7 +40,7 @@ const Navbar = ({ appConfig }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent" elevation={0}>
-        <Container sx={{ py: 1 }}>
+        <Container maxWidth="xl" sx={{ py: 1 }}>
           <Stack
             spacing={1}
             direction="row"
@@ -76,11 +77,15 @@ const Navbar = ({ appConfig }) => {
                       </Typography>
                     </Button>
                   ))}
+
+                  <ThemeToggleButton />
                 </Stack>
               </Hidden>
 
               {/* Mobile Menu */}
               <Hidden mdUp>
+                <ThemeToggleButton />
+
                 <IconButton
                   size="large"
                   edge="start"
@@ -114,6 +119,7 @@ const Navbar = ({ appConfig }) => {
             </Box>
           </Stack>
         </Container>
+        <Divider />
       </AppBar>
     </Box>
   );

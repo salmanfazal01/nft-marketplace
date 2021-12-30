@@ -2,11 +2,10 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import LogoDark from "../assets/images/logo/logo_dark.png";
 import LogoLight from "../assets/images/logo/logo_light.png";
 
-const config = {
+const config = ({ mode }) => ({
   appName: "Axies",
-  Logo: LogoDark,
-  LogoDark,
-  LogoLight,
+  Logo: mode === "dark" ? LogoDark : LogoLight,
+  LogoInverse: mode === "dark" ? LogoLight : LogoDark,
   menuItems: [
     { name: "Home" },
     { name: "Explore" },
@@ -19,6 +18,6 @@ const config = {
       icon: AccountBalanceWalletIcon,
     },
   ],
-};
+});
 
 export default config;
