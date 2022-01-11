@@ -1,19 +1,18 @@
-import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import {
-  Box,
-  Button,
-  Chip,
-  Paper,
-  Stack,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, Chip, Paper, Stack, Typography, useTheme } from "@mui/material";
 import React from "react";
-import RoundedButton from "../Buttons/RoundedButton";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import HistoryIcon from "@mui/icons-material/History";
+import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import LocalFireOutlinedIcon from "@mui/icons-material/LocalFireDepartmentOutlined";
+import Countdown from "../Countdown";
 
-const NftCard = ({ image, likes, title, tag, bid = 0.0, creator = {} }) => {
+const AuctionCard = ({
+  image,
+  likes,
+  title,
+  tag,
+  bid = 0.0,
+  creator = {},
+  auction = {},
+}) => {
   const theme = useTheme();
 
   return (
@@ -61,6 +60,31 @@ const NftCard = ({ image, likes, title, tag, bid = 0.0, creator = {} }) => {
             <Typography variant="body2">{likes}</Typography>
           </Stack>
         )}
+
+        {auction?.active && (
+          <Stack
+            direction="row"
+            spacing={0.5}
+            alignItems="center"
+            justifyContent="center"
+            sx={{
+              position: "absolute",
+              bottom: 8,
+              left: "50%",
+              borderRadius: "13px",
+              height: 36,
+              width: 151,
+              transform: "translateX(-50%)",
+              backgroundColor: theme.palette.background.paper,
+              color: theme.palette.background.white,
+            }}
+          >
+            <LocalFireOutlinedIcon color="secondary" />
+            <Countdown eventTime={auction.ending} variant="body2">
+              {likes}
+            </Countdown>
+          </Stack>
+        )}
       </Box>
 
       <Stack
@@ -91,7 +115,6 @@ const NftCard = ({ image, likes, title, tag, bid = 0.0, creator = {} }) => {
         spacing={2}
         justifyContent="space-between"
         alignItems="center"
-        sx={{ mb: 2 }}
       >
         <Stack direction="row" alignItems="center" spacing={1}>
           <img
@@ -120,24 +143,8 @@ const NftCard = ({ image, likes, title, tag, bid = 0.0, creator = {} }) => {
           </Typography>
         </Stack>
       </Stack>
-
-      <Stack
-        direction="row"
-        spacing={2}
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <RoundedButton icon={<BusinessCenterIcon fontSize="small" />}>
-          Place Bid
-        </RoundedButton>
-
-        <Button sx={{ textTransform: "inherit" }}>
-          <HistoryIcon fontSize="small" sx={{ mr: 0.5 }} />
-          View History
-        </Button>
-      </Stack>
     </Paper>
   );
 };
 
-export default NftCard;
+export default AuctionCard;

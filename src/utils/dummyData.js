@@ -233,3 +233,36 @@ export const authorList = [
   { name: "Harper Wilcher", image: Avatar8, volume: 29.76, verified: true },
   { name: "Crispin Berry", image: Avatar9, volume: 36.43, verified: true },
 ];
+
+export const popularCollectionList = [
+  {
+    title: "Creative Art Collection",
+    images: [Nft1, Nft2, Nft3, Nft4],
+    likes: 100,
+    author: {
+      name: "Salman Creator",
+      image: Avatar1,
+      verified: true,
+    },
+  },
+  {
+    title: "Colorful Abstract",
+    images: [Nft5, Nft6, Nft7, Nft8],
+    likes: 100,
+    author: {
+      name: "Mason Woodward",
+      image: Avatar2,
+      verified: true,
+    },
+  },
+  {
+    title: "Modern Art Collection",
+    images: [Nft9, Nft10, Nft3, Nft6],
+    likes: 100,
+    author: {
+      name: "Freddie Carpenter",
+      image: Avatar3,
+      verified: true,
+    },
+  },
+];

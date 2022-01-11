@@ -8,6 +8,8 @@ const colors = {
   black: "#000",
   inverse: "#000",
   grey: "#7A798A",
+  green: "#47A432",
+  red: "#DF4949",
 };
 
 export const lightTheme = createTheme({

@@ -8,7 +8,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import ExploreButton from "../../components/Buttons/ExploreButton";
-import NftCard from "../../components/Cards/NftCard";
+import AuctionCard from "../../components/Cards/AuctionCard";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { nftList } from "../../utils/dummyData";
 import SectionTitle from "./SectionTitle";
@@ -127,7 +127,7 @@ const Section2 = () => {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ pb: 8 }}>
+    <Container maxWidth="xl" sx={{ pb: 10 }}>
       <SectionTitle
         title="Live Auctions"
         rightElement={<ExploreButton>EXPLORE MORE</ExploreButton>}
@@ -135,8 +135,18 @@ const Section2 = () => {
 
       <Slider {...settings}>
         {nftList.map((nft, i) => (
-          <Box sx={{ maxWidth: 330, py: 5, m: 1 }} key={i}>
-            <NftCard {...nft} />
+          <Box
+            sx={{
+              maxWidth: 330,
+              py: 5,
+              m: 1,
+              [theme.breakpoints.up("sm")]: {
+                width: 310,
+              },
+            }}
+            key={i}
+          >
+            <AuctionCard {...nft} />
           </Box>
         ))}
       </Slider>

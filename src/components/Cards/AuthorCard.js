@@ -29,7 +29,7 @@ const AuthorCard = ({ image, name, verified, volume }) => {
               borderRadius: "50%",
             }}
           >
-            <CheckIcon fontSize="small" sx={{ fontWeight: 800 }} />
+            <CheckIcon fontSize="small" />
           </Stack>
         )}
       </Box>
