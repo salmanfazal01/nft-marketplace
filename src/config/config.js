@@ -1,6 +1,6 @@
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-import LogoDark from "../assets/images/logo/logo_dark.png";
-import LogoLight from "../assets/images/logo/logo_light.png";
+import LogoDark from "../assets/images/logos/logo_dark.png";
+import LogoLight from "../assets/images/logos/logo_light.png";
 
 const config = ({ mode }) => ({
   appName: "Axies",

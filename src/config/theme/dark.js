@@ -3,8 +3,11 @@ import { createTheme } from "@mui/material";
 const colors = {
   orange: "#FFBD0C",
   purple: "#5142FC",
+  pink: "#E250E5",
   white: "#fff",
   black: "#000",
+  inverse: "#fff",
+  grey: "#7A798A",
 };
 
 export const darkTheme = createTheme({

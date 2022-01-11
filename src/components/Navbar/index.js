@@ -8,20 +8,18 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { NAVBAR_HEIGHT_DESKTOP, NAVBAR_HEIGHT_MOBILE } from "../../constants";
 import withAppConfig from "../../hoc/withAppConfig";
+import RoundedButton from "../Buttons/RoundedButton";
 import ThemeToggleButton from "../Buttons/ThemeToggle";
 
 const menuItems = [
-  { name: "Home" },
-  { name: "Explore" },
-  { name: "Activity" },
-  { name: "Community" },
-  { name: "Contact" },
-  {
-    name: "Wallet Connect",
-    variant: "outlined",
-    icon: AccountBalanceWalletIcon,
-  },
+  { name: "Home", link: "/" },
+  { name: "Explore", link: "/explore" },
+  { name: "Activity", link: "/explore" },
+  { name: "Community", link: "/explore" },
+  { name: "Contact", link: "/explore" },
 ];
 
 const Navbar = ({ appConfig }) => {
@@ -40,12 +38,18 @@ const Navbar = ({ appConfig }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="transparent" elevation={0}>
-        <Container maxWidth="xl" sx={{ py: 1 }}>
+        <Container maxWidth="xl">
           <Stack
             spacing={1}
             direction="row"
             alignItems="center"
             justifyContent="space-between"
+            sx={(theme) => ({
+              height: NAVBAR_HEIGHT_MOBILE,
+              [theme.breakpoints.up("md")]: {
+                height: NAVBAR_HEIGHT_DESKTOP,
+              },
+            })}
           >
             {/* Logo */}
             <Button sx={{ textTransform: "inherit" }}>
@@ -62,21 +66,27 @@ const Navbar = ({ appConfig }) => {
               <Hidden mdDown>
                 <Stack direction="row" spacing={2}>
                   {menuItems.map((item, i) => (
-                    <Button
-                      key={item.name}
-                      disableElevation
-                      variant={item.variant || "text"}
-                      size="large"
-                      sx={{
-                        textTransform: "inherit",
-                        fontWeight: 500,
-                      }}
-                    >
-                      <Typography sx={{ fontWeight: 500 }}>
-                        {item.name}
-                      </Typography>
-                    </Button>
+                    <Link to={item.link} key={i}>
+                      <Button
+                        disableElevation
+                        size="large"
+                        sx={{
+                          textTransform: "inherit",
+                          fontWeight: 500,
+                        }}
+                      >
+                        <Typography sx={{ fontWeight: 500 }}>
+                          {item.name}
+                        </Typography>
+                      </Button>
+                    </Link>
                   ))}
+
+                  <RoundedButton
+                    icon={<AccountBalanceWalletIcon fontSize="small" />}
+                  >
+                    Wallet Connect
+                  </RoundedButton>
 
                   <ThemeToggleButton />
                 </Stack>
