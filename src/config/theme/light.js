@@ -6,6 +6,7 @@ const colors = {
   pink: "#E250E5",
   white: "#fff",
   black: "#000",
+  black2: "#14141F",
   inverse: "#000",
   grey: "#7A798A",
   grey2: "#EBEBEB",

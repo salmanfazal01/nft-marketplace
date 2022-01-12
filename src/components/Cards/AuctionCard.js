@@ -52,7 +52,7 @@ const AuctionCard = ({
               borderRadius: "8px",
               height: 30,
               padding: "2px 11px",
-              backgroundColor: theme.palette.background.default,
+              backgroundColor: theme.palette.background.black2,
               color: theme.palette.background.white,
             }}
           >
@@ -76,10 +76,14 @@ const AuctionCard = ({
               width: 151,
               transform: "translateX(-50%)",
               backgroundColor: theme.palette.background.paper,
-              color: theme.palette.background.white,
+              color: theme.palette.background.inverse,
             }}
           >
-            <LocalFireOutlinedIcon color="secondary" />
+            <LocalFireOutlinedIcon
+              sx={{
+                color: theme.palette.primary.purple,
+              }}
+            />
             <Countdown eventTime={auction.ending} variant="body2">
               {likes}
             </Countdown>
@@ -107,7 +111,15 @@ const AuctionCard = ({
           {title}
         </Typography>
 
-        <Chip label={tag} color="secondary" sx={{ py: 0.5, height: "unset" }} />
+        <Chip
+          label={tag}
+          sx={{
+            py: 0.5,
+            height: "unset",
+            color: theme.palette.primary.white,
+            backgroundColor: theme.palette.background.purple,
+          }}
+        />
       </Stack>
 
       <Stack

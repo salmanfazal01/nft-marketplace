@@ -53,7 +53,7 @@ const NftCard = ({ image, likes, title, tag, bid = 0.0, creator = {} }) => {
               borderRadius: "8px",
               height: 30,
               padding: "2px 11px",
-              backgroundColor: theme.palette.background.default,
+              backgroundColor: theme.palette.background.black2,
               color: theme.palette.background.white,
             }}
           >
@@ -83,7 +83,15 @@ const NftCard = ({ image, likes, title, tag, bid = 0.0, creator = {} }) => {
           {title}
         </Typography>
 
-        <Chip label={tag} color="secondary" sx={{ py: 0.5, height: "unset" }} />
+        <Chip
+          label={tag}
+          sx={{
+            py: 0.5,
+            height: "unset",
+            color: theme.palette.primary.white,
+            backgroundColor: theme.palette.background.purple,
+          }}
+        />
       </Stack>
 
       <Stack
