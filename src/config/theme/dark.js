@@ -8,6 +8,7 @@ const colors = {
   black: "#000",
   inverse: "#fff",
   grey: "#7A798A",
+  grey2: "#343444",
   green: "#47A432",
   red: "#DF4949",
 };
@@ -23,6 +24,7 @@ export const darkTheme = createTheme({
     secondary: { main: "#5142FC" },
     background: {
       default: "#14141F",
+      darker: "#0D0D11",
       paper: "#343444",
       ...colors,
     },
