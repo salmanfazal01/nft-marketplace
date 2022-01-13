@@ -16,7 +16,6 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
 import { NAVBAR_HEIGHT_DESKTOP, NAVBAR_HEIGHT_MOBILE } from "../../constants";
 import withAppConfig from "../../hoc/withAppConfig";
 import RoundedButton from "../Buttons/RoundedButton";
@@ -35,9 +34,6 @@ const Navbar = ({ appConfig }) => {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
 
-  let location = useLocation();
-  const isHomePage = location.pathname === "/";
-
   const { projectName, LogoDark, LogoWhite } = appConfig;
 
   const handleMenu = (event) => {
@@ -50,16 +46,7 @@ const Navbar = ({ appConfig }) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        color="transparent"
-        elevation={0}
-        // sx={{
-        //   backgroundColor: isHomePage
-        //     ? theme.palette.background.black2
-        //     : "transparent",
-        // }}
-      >
+      <AppBar position="static" color="transparent" elevation={0}>
         <Container maxWidth="xl">
           <Stack
             spacing={1}
