@@ -10,6 +10,7 @@ const colors = {
   inverse: "#000",
   grey: "#7A798A",
   grey2: "#EBEBEB",
+  grey3: '#8A8AA0',
   green: "#47A432",
   red: "#DF4949",
 };

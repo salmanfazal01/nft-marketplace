@@ -3,7 +3,7 @@ import React from "react";
 
 const RoundedButton = ({ children, sx = {}, icon, variant, ...props }) => {
   const theme = useTheme();
-  const mode = theme.palette.mode;
+  const isDark = theme.palette.mode === "dark";
 
   const getStyles = () => {
     const commonStyles = {
@@ -31,11 +31,24 @@ const RoundedButton = ({ children, sx = {}, icon, variant, ...props }) => {
           border: `2px solid ${theme.palette.primary.main}`,
           "&:hover": {
             border: `2px solid ${theme.palette.primary.main}`,
-            color:
-              mode === "dark"
-                ? theme.palette.primary.black
-                : theme.palette.primary.white,
+            color: isDark
+              ? theme.palette.primary.black
+              : theme.palette.primary.white,
             backgroundColor: theme.palette.primary.main,
+          },
+        };
+
+      case "navbar":
+        return {
+          ...commonStyles,
+          border: `2px solid ${
+            isDark ? theme.palette.primary.main : theme.palette.primary.white
+          }`,
+          color: theme.palette.primary.white,
+          "&:hover": {
+            border: `2px solid ${theme.palette.primary.white}`,
+            color: theme.palette.primary.purple,
+            backgroundColor: theme.palette.primary.white,
           },
         };
 

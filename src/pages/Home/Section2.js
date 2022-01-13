@@ -127,7 +127,7 @@ const Section2 = () => {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ pb: 10 }}>
+    <Container maxWidth="xl" sx={{ pt: 8, pb: 10 }}>
       <SectionTitle
         title="Live Auctions"
         rightElement={<ExploreButton>EXPLORE MORE</ExploreButton>}

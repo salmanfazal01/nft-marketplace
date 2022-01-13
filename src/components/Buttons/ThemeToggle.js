@@ -9,11 +9,10 @@ const ThemeToggleButton = () => {
 
   return (
     <IconButton
-      sx={{ ml: 1 }}
+      sx={{ ml: 1, color: theme.palette.primary.white }}
       onClick={() =>
         setThemeName(theme.palette.mode === "dark" ? "light" : "dark")
       }
-      color="inherit"
     >
       {theme.palette.mode === "dark" ? <Brightness7 /> : <Brightness4 />}
     </IconButton>

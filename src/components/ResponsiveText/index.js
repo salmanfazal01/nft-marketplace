@@ -9,11 +9,7 @@ import React from "react";
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-export default function ResponsiveText({
-  children,
-  variant = "body1",
-  ...props
-}) {
+const ResponsiveText = ({ children, variant = "body1", ...props }) => {
   return (
     <ThemeProvider theme={theme}>
       <Typography variant={variant} {...props}>
@@ -21,4 +17,6 @@ export default function ResponsiveText({
       </Typography>
     </ThemeProvider>
   );
-}
+};
+
+export default ResponsiveText;
