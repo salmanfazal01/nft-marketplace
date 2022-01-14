@@ -40,6 +40,7 @@ const actions = {
 
 const NftItem = () => {
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   const [tabValue, setTabValue] = useState(0);
 
   const {
@@ -122,7 +123,28 @@ const NftItem = () => {
   const TabPanel = ({ children, index, ...other }) => (
     <div role="tabpanel" hidden={tabValue !== index} {...other}>
       {tabValue === index && (
-        <Box sx={{ height: 210, overflowY: "auto", pr: { xs: 2, md: 4 } }}>
+        <Box
+          sx={{
+            height: 210,
+            overflowY: "auto",
+            pr: { xs: 2, md: 4 },
+            "&::-webkit-scrollbar": {
+              width: "5px",
+              height: "5px",
+              backgroundColor: isDark
+                ? theme.palette.background.black
+                : theme.palette.background.color7,
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: theme.palette.background.grey,
+              borderRadius: "3px",
+
+              "&:hover": {
+                background: isDark ? "rgba(255,255,255,.2)" : "rgba(0,0,0,.3)",
+              },
+            },
+          }}
+        >
           {children}
         </Box>
       )}
@@ -233,7 +255,13 @@ const NftItem = () => {
 
               {/* Tabs */}
               <Box>
-                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <Box
+                  sx={{
+                    borderBottom: 1,
+                    borderColor: "divider",
+                    mr: { xs: 2, md: 4 },
+                  }}
+                >
                   <Tabs
                     value={tabValue}
                     onChange={(_, v) => setTabValue(v)}
