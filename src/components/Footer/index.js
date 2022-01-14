@@ -118,7 +118,7 @@ const Footer = ({ appConfig }) => {
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              backgroundColor: theme.palette.background.grey2,
+              backgroundColor: theme.palette.background.color7,
               "&:hover": {
                 color: theme.palette.primary.white,
                 backgroundColor: theme.palette.background.purple,

@@ -8,6 +8,7 @@ import Nft7 from "../assets/images/nfts/nft7.jpg";
 import Nft8 from "../assets/images/nfts/nft8.jpg";
 import Nft9 from "../assets/images/nfts/nft9.jpg";
 import Nft10 from "../assets/images/nfts/nft10.jpg";
+import NftLarge from "../assets/images/nfts/images-item-details.jpg";
 
 import Avatar1 from "../assets/images/avatars/avt-1.jpg";
 import Avatar2 from "../assets/images/avatars/avt-2.jpg";
@@ -221,6 +222,89 @@ export const nftList = [
     history: [],
   },
 ];
+
+export const NftItem = {
+  image: NftLarge,
+  title: "The Fantasy Flower illustration",
+  views: 225,
+  likes: 100,
+  description:
+    "Habitant sollicitudin faucibus cursus lectus pulvinar dolor non ultrices eget. Facilisi lobortisal morbi fringilla urna amet sed ipsum vitae ipsum malesuada. Habitant sollicitudin faucibus cursus lectus pulvinar dolor non ultrices eget. Facilisi lobortisal morbi fringilla urna amet sed ipsum",
+  creator: {
+    name: "Freddie Carpenter",
+    image: Avatar1,
+  },
+  owner: {
+    name: "Ralph Garraway",
+    image: Avatar2,
+  },
+  auction: {
+    active: true,
+    ending: "2022-02-12T20:36:00+03:00",
+  },
+  bid: 4.89,
+  history: [
+    {
+      name: "Mason Woodward",
+      image: Avatar3,
+      verified: true,
+      action: "bid",
+      timestamp: "2022-01-12T20:36:00+03:00",
+      price: 4.89,
+    },
+    {
+      name: "Salman Sam",
+      image: Avatar2,
+      verified: true,
+      action: "accepted",
+      timestamp: "2022-01-12T20:36:00+03:00",
+      price: 4.89,
+    },
+    {
+      name: "Mason Woodward",
+      image: Avatar1,
+      verified: true,
+      action: "bid",
+      timestamp: "2022-01-12T20:36:00+03:00",
+      price: 4.89,
+    },
+    {
+      name: "Mason Woodward",
+      image: Avatar4,
+      verified: true,
+      action: "bid",
+      timestamp: "2022-01-12T20:36:00+03:00",
+      price: 4.89,
+    },
+    {
+      name: "Mason Woodward",
+      image: Avatar5,
+      verified: true,
+      action: "bid",
+      timestamp: "2022-01-12T20:36:00+03:00",
+      price: 4.89,
+    },
+    {
+      name: "Mason Woodward",
+      image: Avatar6,
+      verified: true,
+      action: "bid",
+      timestamp: "2022-01-12T20:36:00+03:00",
+      price: 4.89,
+    },
+  ],
+  info: [
+    {
+      name: "Mason Woodward",
+      image: Avatar3,
+      verified: true,
+      action: "bid",
+      timestamp: "2022-01-12T20:36:00+03:00",
+    },
+  ],
+  provenance:
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+};
 
 export const authorList = [
   { name: "Samson Frost", image: Avatar1, volume: 205.43, verified: true },

@@ -9,10 +9,11 @@ const colors = {
   black2: "#14141F",
   inverse: "#fff",
   grey: "#7A798A",
-  grey2: "#343444",
-  grey3: '#8A8AA0',
+  grey3: "#8A8AA0",
   green: "#47A432",
   red: "#DF4949",
+  color5: "#030303",
+  color7: "#343444",
 };
 
 export const darkTheme = createTheme({

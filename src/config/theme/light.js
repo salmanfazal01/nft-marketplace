@@ -9,10 +9,11 @@ const colors = {
   black2: "#14141F",
   inverse: "#000",
   grey: "#7A798A",
-  grey2: "#EBEBEB",
-  grey3: '#8A8AA0',
+  grey3: "#8A8AA0",
   green: "#47A432",
   red: "#DF4949",
+  color5: "#F8F8F8",
+  color7: "#EBEBEB",
 };
 
 export const lightTheme = createTheme({
