@@ -52,6 +52,21 @@ const RoundedButton = ({ children, sx = {}, icon, variant, ...props }) => {
           },
         };
 
+      case "white-contained":
+        return {
+          ...commonStyles,
+          border: `2px solid ${theme.palette.primary.main}`,
+          backgroundColor: theme.palette.background.white,
+          color: theme.palette.primary.black,
+          ".MuiSvgIcon-root": { color: theme.palette.background.purple },
+          "&:hover": {
+            border: `2px solid ${theme.palette.background.purple}`,
+            color: theme.palette.primary.white,
+            backgroundColor: theme.palette.background.purple,
+            ".MuiSvgIcon-root": { color: theme.palette.background.white },
+          },
+        };
+
       default:
         return {
           ...commonStyles,

@@ -13,6 +13,7 @@ import React, { useState } from "react";
 import RoundedButton from "../Buttons/RoundedButton";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import HistoryIcon from "@mui/icons-material/History";
+import { useNavigate } from "react-router-dom";
 
 const ExploreNftCard = ({
   image,
@@ -23,6 +24,7 @@ const ExploreNftCard = ({
   creator = {},
 }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [showBidBtn, setShowBidBtn] = useState(false);
 
   const showButton = (e) => {
@@ -47,6 +49,7 @@ const ExploreNftCard = ({
           transform: "translateY(-10px)",
         },
       }}
+      onClick={() => navigate("/nft/item")}
     >
       <Box
         sx={{ mb: 1.5, position: "relative", cursor: "pointer" }}
@@ -68,12 +71,17 @@ const ExploreNftCard = ({
           <Box
             sx={{
               position: "absolute",
-              top: "50%",
+              top: "40%",
               left: "50%",
-              transform: "translate(-50%, 50%)",
+              transform: "translate(-50%, 0%)",
             }}
           >
-            <RoundedButton variant='white'>Place Bid</RoundedButton>
+            <RoundedButton
+              variant="white-contained"
+              icon={<BusinessCenterIcon fontSize="small" />}
+            >
+              Place Bid
+            </RoundedButton>
           </Box>
         )}
 

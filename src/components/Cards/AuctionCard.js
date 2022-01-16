@@ -1,8 +1,11 @@
 import { Box, Chip, Paper, Stack, Typography, useTheme } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import LocalFireOutlinedIcon from "@mui/icons-material/LocalFireDepartmentOutlined";
 import Countdown from "../Countdown";
+import RoundedButton from "../Buttons/RoundedButton";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import { useNavigate } from "react-router-dom";
 
 const AuctionCard = ({
   image,
@@ -14,6 +17,18 @@ const AuctionCard = ({
   auction = {},
 }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
+  const [showBidBtn, setShowBidBtn] = useState(false);
+
+  const showButton = (e) => {
+    e.preventDefault();
+    setShowBidBtn(true);
+  };
+
+  const hideButton = (e) => {
+    e.preventDefault();
+    setShowBidBtn(false);
+  };
 
   return (
     <Paper
@@ -27,8 +42,13 @@ const AuctionCard = ({
           transform: "translateY(-10px)",
         },
       }}
+      onClick={() => navigate("/nft/item")}
     >
-      <Box sx={{ mb: 2, position: "relative", cursor: "pointer" }}>
+      <Box
+        sx={{ mb: 2, position: "relative", cursor: "pointer" }}
+        onMouseEnter={(e) => showButton(e)}
+        onMouseLeave={(e) => hideButton(e)}
+      >
         <img
           src={image}
           alt={title}
@@ -59,6 +79,24 @@ const AuctionCard = ({
             <FavoriteOutlinedIcon fontSize="small" />
             <Typography variant="body2">{likes}</Typography>
           </Stack>
+        )}
+
+        {showBidBtn && (
+          <Box
+            sx={{
+              position: "absolute",
+              top: "40%",
+              left: "50%",
+              transform: "translate(-50%, 0%)",
+            }}
+          >
+            <RoundedButton
+              variant="white-contained"
+              icon={<BusinessCenterIcon fontSize="small" />}
+            >
+              Place Bid
+            </RoundedButton>
+          </Box>
         )}
 
         {auction?.active && (
