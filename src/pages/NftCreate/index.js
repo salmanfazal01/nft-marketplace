@@ -12,6 +12,8 @@ import {
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import BreadcrumbsSection from "../../components/BreadcrumbsSection";
+import RoundedButton from "../../components/Buttons/RoundedButton";
+import PreviewCreateNftCard from "../../components/Cards/PreviewCreateNftCard";
 import FormTextField from "../../components/FormComponents/FormTextField";
 import { NAVBAR_HEIGHT_DESKTOP, NAVBAR_HEIGHT_MOBILE } from "../../constants";
 import SelectButton from "./SelectButton";
@@ -25,9 +27,11 @@ const NftCreate = () => {
   const theme = useTheme();
   const [method, setMethod] = useState(0);
 
-  const { handleSubmit, reset, control, setValue, watch } = useForm();
+  const hookForm = useForm();
+  const { handleSubmit, reset, control, getValues } = hookForm;
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
+    reset(); // reset after form submit
     console.log(data);
   };
 
@@ -216,11 +220,14 @@ const NftCreate = () => {
         <Grid container spacing={{ xs: 3, md: 6, lg: 9 }}>
           {/* Preview */}
           <Grid item xs={12} md={4} lg={3}>
-            <SectionTitle>Preview Item</SectionTitle>
+            <SectionTitle>
+              <PreviewCreateNftCard control={control} {...getValues()} />
+            </SectionTitle>
           </Grid>
 
           {/* Form */}
           <Grid item xs={12} md={8} lg={9}>
+            {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
             <form onSubmit={handleSubmit(onSubmit)}>
               <Stack spacing={3}>
                 {/* Upload File */}
@@ -267,6 +274,35 @@ const NftCreate = () => {
                 ) : (
                   <BidsForm />
                 )}
+
+                {/* Submit */}
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  justifyContent="flex-end"
+                  sx={{ pt: 2 }}
+                >
+                  <RoundedButton
+                    variant="purple"
+                    type="reset"
+                    sx={{
+                      width: 100,
+                      [theme.breakpoints.up("md")]: { width: 150 },
+                    }}
+                  >
+                    Reset
+                  </RoundedButton>
+                  <RoundedButton
+                    variant="white-contained"
+                    type="submit"
+                    sx={{
+                      width: 100,
+                      [theme.breakpoints.up("md")]: { width: 150 },
+                    }}
+                  >
+                    Submit
+                  </RoundedButton>
+                </Stack>
               </Stack>
             </form>
           </Grid>

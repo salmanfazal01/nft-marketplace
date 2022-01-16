@@ -350,3 +350,5 @@ export const popularCollectionList = [
     },
   },
 ];
+
+export { Avatar1, Avatar2, Avatar3, Nft1, Nft2, Nft3 };
