@@ -12,9 +12,9 @@ const config = ({ mode }) => ({
   menuItems: [
     { name: "Home", link: "/" },
     { name: "Explore", link: "/explore" },
-    { name: "Activity", link: "/explore" },
-    { name: "Community", link: "/explore" },
-    { name: "Contact", link: "/explore" },
+    { name: "Item", link: "/nft/item" },
+    { name: "Create", link: "/nft/create" },
+    // { name: "Contact", link: "/explore" },
   ],
 });
 
