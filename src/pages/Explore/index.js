@@ -8,9 +8,12 @@ import {
   Divider,
   FormControlLabel,
   FormGroup,
+  Hidden,
   Grid,
+  Drawer,
   Stack,
   Typography,
+  Button,
   useTheme,
 } from "@mui/material";
 import React, { useState } from "react";
@@ -63,6 +66,7 @@ const ExplorePage = () => {
   const [categoriesOpen, setCategoriesOpen] = useState(true);
   const [chainsOpen, setChainsOpen] = useState(true);
   const [collectionsOpen, setCollectionsOpen] = useState(true);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const FilterLabel = ({ label, state, setState }) => (
     <Stack
@@ -94,6 +98,61 @@ const ExplorePage = () => {
     </FormGroup>
   );
 
+  const FilterMenu = () => (
+    <>
+      {/* Status */}
+      <FilterLabel label="Status" state={statusOpen} setState={setStatusOpen} />
+      <Collapse in={statusOpen} timeout="auto" unmountOnExit>
+        <Stack>
+          {STATUSES.map((item, i) => (
+            <FilterMenuItem key={i} label={item.label} />
+          ))}
+        </Stack>
+      </Collapse>
+      <Divider sx={{ my: 2 }} />
+
+      {/* Categories */}
+      <FilterLabel
+        label="Categories"
+        state={categoriesOpen}
+        setState={setCategoriesOpen}
+      />
+      <Collapse in={categoriesOpen} timeout="auto" unmountOnExit>
+        <Stack>
+          {CATEGORIES.map((item, i) => (
+            <FilterMenuItem key={i} label={item.label} />
+          ))}
+        </Stack>
+      </Collapse>
+      <Divider sx={{ my: 2 }} />
+
+      {/* Chains */}
+      <FilterLabel label="Chains" state={chainsOpen} setState={setChainsOpen} />
+      <Collapse in={chainsOpen} timeout="auto" unmountOnExit>
+        <Stack>
+          {CHAINS.map((item, i) => (
+            <FilterMenuItem key={i} label={item.label} />
+          ))}
+        </Stack>
+      </Collapse>
+      <Divider sx={{ my: 2 }} />
+
+      {/* Collections */}
+      <FilterLabel
+        label="Collections"
+        state={collectionsOpen}
+        setState={setCollectionsOpen}
+      />
+      <Collapse in={collectionsOpen} timeout="auto" unmountOnExit>
+        <Stack>
+          {COLLECTIONS.map((item, i) => (
+            <FilterMenuItem key={i} label={item.label} />
+          ))}
+        </Stack>
+      </Collapse>
+    </>
+  );
+
   return (
     <Box
       sx={{
@@ -109,64 +168,26 @@ const ExplorePage = () => {
         <Grid container spacing={{ xs: 3, md: 6, lg: 9 }}>
           {/* Menu */}
           <Grid item xs={12} md={4} lg={3}>
-            {/* Status */}
-            <FilterLabel
-              label="Status"
-              state={statusOpen}
-              setState={setStatusOpen}
-            />
-            <Collapse in={statusOpen} timeout="auto" unmountOnExit>
-              <Stack>
-                {STATUSES.map((item, i) => (
-                  <FilterMenuItem key={i} label={item.label} />
-                ))}
-              </Stack>
-            </Collapse>
-            <Divider sx={{ my: 2 }} />
+            <Hidden smDown>
+              <FilterMenu />
+            </Hidden>
 
-            {/* Categories */}
-            <FilterLabel
-              label="Categories"
-              state={categoriesOpen}
-              setState={setCategoriesOpen}
-            />
-            <Collapse in={categoriesOpen} timeout="auto" unmountOnExit>
-              <Stack>
-                {CATEGORIES.map((item, i) => (
-                  <FilterMenuItem key={i} label={item.label} />
-                ))}
-              </Stack>
-            </Collapse>
-            <Divider sx={{ my: 2 }} />
+            <Hidden mdUp>
+              <Button onClick={() => setDrawerOpen(true)}>Open Filter</Button>
 
-            {/* Chains */}
-            <FilterLabel
-              label="Chains"
-              state={chainsOpen}
-              setState={setChainsOpen}
-            />
-            <Collapse in={chainsOpen} timeout="auto" unmountOnExit>
-              <Stack>
-                {CHAINS.map((item, i) => (
-                  <FilterMenuItem key={i} label={item.label} />
-                ))}
-              </Stack>
-            </Collapse>
-            <Divider sx={{ my: 2 }} />
-
-            {/* Collections */}
-            <FilterLabel
-              label="Collections"
-              state={collectionsOpen}
-              setState={setCollectionsOpen}
-            />
-            <Collapse in={collectionsOpen} timeout="auto" unmountOnExit>
-              <Stack>
-                {COLLECTIONS.map((item, i) => (
-                  <FilterMenuItem key={i} label={item.label} />
-                ))}
-              </Stack>
-            </Collapse>
+              <Drawer
+                anchor={"left"}
+                open={drawerOpen}
+                onClose={() => setDrawerOpen(false)}
+                PaperProps={{
+                  sx: { backgroundColor: theme.palette.background.default },
+                }}
+              >
+                <Box sx={{ p: 3 }}>
+                  <FilterMenu />
+                </Box>
+              </Drawer>
+            </Hidden>
           </Grid>
 
           {/* Collections */}

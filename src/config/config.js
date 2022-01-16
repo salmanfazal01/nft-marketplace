@@ -1,4 +1,3 @@
-import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import LogoDark from "../assets/images/logos/logo_dark.png";
 import LogoLight from "../assets/images/logos/logo_light.png";
 import LogoWhite from "../assets/images/logos/logo_white.png";
@@ -11,16 +10,11 @@ const config = ({ mode }) => ({
   LogoWhite: LogoWhite,
   LogoInverse: mode === "dark" ? LogoLight : LogoDark,
   menuItems: [
-    { name: "Home" },
-    { name: "Explore" },
-    { name: "Activity" },
-    { name: "Community" },
-    { name: "Contact" },
-    {
-      name: "Wallet Connect",
-      variant: "outlined",
-      icon: AccountBalanceWalletIcon,
-    },
+    { name: "Home", link: "/" },
+    { name: "Explore", link: "/explore" },
+    { name: "Activity", link: "/explore" },
+    { name: "Community", link: "/explore" },
+    { name: "Contact", link: "/explore" },
   ],
 });
 

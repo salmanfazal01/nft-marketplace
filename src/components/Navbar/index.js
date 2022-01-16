@@ -21,14 +21,6 @@ import withAppConfig from "../../hoc/withAppConfig";
 import RoundedButton from "../Buttons/RoundedButton";
 import ThemeToggleButton from "../Buttons/ThemeToggle";
 
-const menuItems = [
-  { name: "Home", link: "/" },
-  { name: "Explore", link: "/explore" },
-  { name: "Activity", link: "/explore" },
-  { name: "Community", link: "/explore" },
-  { name: "Contact", link: "/explore" },
-];
-
 const Navbar = ({ appConfig }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const theme = useTheme();
@@ -74,7 +66,7 @@ const Navbar = ({ appConfig }) => {
               {/* Desktop Menu */}
               <Hidden mdDown>
                 <Stack direction="row" spacing={2}>
-                  {menuItems.map((item, i) => (
+                  {appConfig.menuItems.map((item, i) => (
                     <Link href={item.link} underline="none" key={i}>
                       <Button
                         disableElevation
@@ -132,7 +124,7 @@ const Navbar = ({ appConfig }) => {
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
                 >
-                  {menuItems.map((item) => (
+                  {appConfig.menuItems.map((item) => (
                     <MenuItem key={item.name}>{item.name}</MenuItem>
                   ))}
                 </Menu>
