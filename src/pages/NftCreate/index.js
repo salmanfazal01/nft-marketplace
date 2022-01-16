@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 import BreadcrumbsSection from "../../components/BreadcrumbsSection";
 import RoundedButton from "../../components/Buttons/RoundedButton";
 import PreviewCreateNftCard from "../../components/Cards/PreviewCreateNftCard";
+import FormDropzone from "../../components/FormComponents/FormDropzone";
 import FormTextField from "../../components/FormComponents/FormTextField";
 import { NAVBAR_HEIGHT_DESKTOP, NAVBAR_HEIGHT_MOBILE } from "../../constants";
 import SelectButton from "./SelectButton";
@@ -220,9 +221,8 @@ const NftCreate = () => {
         <Grid container spacing={{ xs: 3, md: 6, lg: 9 }}>
           {/* Preview */}
           <Grid item xs={12} md={4} lg={3}>
-            <SectionTitle>
-              <PreviewCreateNftCard control={control} {...getValues()} />
-            </SectionTitle>
+            <SectionTitle>Preview Item</SectionTitle>
+            <PreviewCreateNftCard control={control} {...getValues()} />
           </Grid>
 
           {/* Form */}
@@ -233,7 +233,26 @@ const NftCreate = () => {
                 {/* Upload File */}
                 <Box>
                   <SectionTitle>Upload file</SectionTitle>
-                  <Box sx={{ height: 100, border: "1px solid white" }}></Box>
+                  <FormDropzone name="image" control={control}>
+                    <Stack
+                      spacing={2}
+                      direction="row"
+                      alignItems="center"
+                      justifyContent="space-between"
+                      sx={{
+                        width: "100%",
+                        [theme.breakpoints.up("md")]: { px: 6 },
+                      }}
+                    >
+                      <Typography>
+                        PNG, JPG, GIF, WEBP or MP4. Max 200mb.
+                      </Typography>
+
+                      <RoundedButton variant="navbar">
+                        Upload file
+                      </RoundedButton>
+                    </Stack>
+                  </FormDropzone>
                 </Box>
 
                 {/* Select method */}

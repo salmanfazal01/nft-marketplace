@@ -10,15 +10,18 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { useWatch } from "react-hook-form";
 import { Avatar1, Nft1 } from "../../utils/dummyData";
 
-const PreviewCreateNftCard = ({ image, tag, creator = {}, control }) => {
+const PreviewCreateNftCard = ({ tag, creator = {}, control }) => {
   const theme = useTheme();
 
   const title = useWatch({ control, name: "title" }) || "Title Here";
   const price = useWatch({ control, name: "price" }) || 1;
+  const _image = useWatch({ control, name: "image" }) || Nft1;
+  const image =
+    typeof _image === "object" ? URL.createObjectURL(_image) : _image;
 
   return (
     <Paper
@@ -30,13 +33,14 @@ const PreviewCreateNftCard = ({ image, tag, creator = {}, control }) => {
     >
       <Box sx={{ mb: 1.5, position: "relative", cursor: "pointer" }}>
         <img
-          src={image || Nft1}
-          alt={title || "title"}
+          src={image}
+          alt={title}
           style={{
             width: "100%",
             maxHeight: "270px",
             objectFit: "cover",
             borderRadius: "20px",
+            backgroundPosition: "center center",
           }}
         />
 

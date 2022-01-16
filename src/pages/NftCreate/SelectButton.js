@@ -51,6 +51,7 @@ const SelectButton = ({ icon, children, active, onClick }) => {
       sx={{
         textTransform: "inherit",
         height: 46,
+        py: 1,
         borderRadius: "8px",
         ...activeStyles(),
       }}
