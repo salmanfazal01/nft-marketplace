@@ -14,6 +14,7 @@ const config = ({ mode }) => ({
     { name: "Explore", link: "/explore" },
     { name: "Item", link: "/nft/item" },
     { name: "Create", link: "/nft/create" },
+    { name: "Profile", link: "/profile/edit" },
     // { name: "Contact", link: "/explore" },
   ],
 });
