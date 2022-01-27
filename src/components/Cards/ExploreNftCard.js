@@ -1,19 +1,17 @@
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import HistoryIcon from "@mui/icons-material/History";
 import {
   Box,
   Button,
   Chip,
-  Divider,
-  Paper,
-  Stack,
+  Divider, Stack,
   Typography,
-  useTheme,
+  useTheme
 } from "@mui/material";
 import React, { useState } from "react";
-import RoundedButton from "../Buttons/RoundedButton";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import HistoryIcon from "@mui/icons-material/History";
 import { useNavigate } from "react-router-dom";
+import RoundedButton from "../Buttons/RoundedButton";
 
 const ExploreNftCard = ({
   image,
@@ -38,13 +36,14 @@ const ExploreNftCard = ({
   };
 
   return (
-    <Paper
+    <Box
       sx={{
         p: 2.5,
         borderRadius: "20px",
         height: "100%",
         width: "100%",
         transition: "all .4s ease",
+        backgroundColor: theme.palette.background.color7,
         "&:hover": {
           transform: "translateY(-10px)",
         },
@@ -186,7 +185,7 @@ const ExploreNftCard = ({
           View History
         </Button>
       </Stack>
-    </Paper>
+    </Box>
   );
 };
 
