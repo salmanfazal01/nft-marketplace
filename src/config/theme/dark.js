@@ -5,6 +5,7 @@ const colors = {
   purple: "#5142FC",
   pink: "#E250E5",
   white: "#fff",
+  white2: "#f8f8f8",
   black: "#000",
   black2: "#14141F",
   inverse: "#fff",

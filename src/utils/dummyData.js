@@ -351,4 +351,15 @@ export const popularCollectionList = [
   },
 ];
 
+export const dummyAuthor = {
+  name: "Samson Frost",
+  image: Avatar1,
+  volume: 205.43,
+  verified: true,
+  socials: { twitter: "#", telegram: "#", tiktok: "#", email: "#" },
+  eth_address: "DdzFFzCqrhshMSxABCdfrge",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum obcaecati dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.",
+};
+
 export { Avatar1, Avatar2, Avatar3, Nft1, Nft2, Nft3 };
